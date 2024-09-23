@@ -15,9 +15,12 @@ app.use(helmet());
 app.use(bodyParser.json());
 
 // CORS Configuration: Restricting to your domain
+// Updated CORS configuration
 const corsOptions = {
-  origin: ['https://thewheeldeal.in', 'http://localhost:3000'],
-  optionsSuccessStatus: 200,
+  origin: ['https://thewheeldeal.in', 'http://localhost:3000'], // Allow multiple origins (production and local development)
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+  credentials: true, // Enable credentials for cross-origin requests
+  optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
 
