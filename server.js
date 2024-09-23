@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 
 app.use(helmet());
 app.use(bodyParser.json());
-app.set('trust proxy', true);
+app.set('trust proxy', 1);
 
 // CORS Configuration: Restricting to your domain
 // Updated CORS configuration
@@ -80,6 +80,7 @@ const otpLimiter = rateLimit({
 
 // Helper function to format Indian phone numbers
 const formatPhoneNumber = (number) => {
+  console.log('Received mobile number:', number);
   if (!number || number.length !== 10) {
     console.error('Invalid phone number format.');
     return null;
