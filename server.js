@@ -13,6 +13,7 @@ const port = process.env.PORT || 5000;
 
 app.use(helmet());
 app.use(bodyParser.json());
+app.set('trust proxy', true);
 
 // CORS Configuration: Restricting to your domain
 // Updated CORS configuration
